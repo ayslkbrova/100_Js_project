@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tip Calculator</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        button {
+            margin-top: 1.5rem;
+            padding: .3rem 2rem;
+            background-color: antiquewhite;
+            border-radius: 5px;
+        }
+
+        h1 {
+            display: inline-block;
+        }
+
+        p {
+            font-size: 1.3rem;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Tip Calculator</h1>
+    <p>Enter the bill amount and tip percentage to calculate the total.</p>
+    <p>Bill amount:</p>
+    <input type="number" name="" id="a">
+    <p>Tip percentage:</p>
+    <input type="number" name=""  id="b">
+    <button onclick="hesabla()">Calculate</button>
+    <p id="msg">
+    <h1 id="total"></h1>
+    </p>
+    <script>
+        let a = document.getElementById("a");
+        let b = document.getElementById('b');
+        let msg = document.getElementById("msg")
+        let totalDisplay = document.getElementById("total");
+        function hesabla() {
+
+            if ((a.value == '') || (b.value == '')) {
+                msg.innerHTML = "Enter a value for this field."
+                totalDisplay.innerHTML = ''
+            }
+            else {
+                let cem = +a.value + ((+a.value * 0.01) * (+b.value))
+                msg.innerHTML = " "
+                totalDisplay.innerHTML += 'Total:' + cem.toFixed(2);
+            }
+        }
+    </script>
+
+</body>
+
+</html>

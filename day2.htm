@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 70vh;
+        }
+
+        .age-calculate {
+            display: flex;
+            align-items: center;
+
+        }
+
+        input {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+            max-width: 300px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin-top: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        span {
+            margin-top: 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Age Calculator</h1>
+
+    <input type="date">
+    <button onclick="calculate()">Calculate</button>
+    </div> <span></span>
+    <script>
+        let input = document.querySelector('input');
+        const span = document.querySelector('span');
+        const calculate = () => {
+            const d = new Date();
+            const e = new Date(input.value);
+            console.log(d - e);
+            let age = d.getFullYear() - e.getFullYear();
+            const month = d.getMonth() - e.getMonth()
+
+            if (month < 0 || (month == 0 && (d.getDate() < e.getDate()))) {
+                age--
+            }
+            span.innerHTML = `Your age is ${age} years old`
+            console.log(span);
+            return age;
+
+        }
+    </script>
+</body>
+
+</html>
